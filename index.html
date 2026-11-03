@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page == "home" %}Home{% elif page == "portfolio" %}Portfolio{% else %}Blog{% endif %} | Inception</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header><div class="container nav">
+  <a class="brand" href="{{ url_for('home') }}"><span class="mark">i.</span><span><b>INCEPTION</b><small>Documentation Boutique</small></span></a>
+  <nav><a href="{{ url_for('home') }}" {% if page == "home" %}aria-current="page"{% endif %}>Home</a><a href="{{ url_for('portfolio') }}" {% if page == "portfolio" %}aria-current="page"{% endif %}>Portfolio</a><a href="{{ url_for('blog') }}" {% if page == "blog" %}aria-current="page"{% endif %}>Blog</a></nav>
+</div></header>
+<main>
+{% if page == "home" %}
+<section class="hero"><div class="container hero-grid"><div><p class="eyebrow">Technical writing, thoughtfully done</p><h1>Turn your complex technical content into <em>clear documentation.</em></h1><p class="lead">Inception helps technology teams make products easier to understand, use, and trust.</p><a class="button" href="mailto:YOUR-EMAIL@example.com">Contact Inception</a> <a class="button outline" href="{{ url_for('portfolio') }}">Explore portfolio</a></div><aside class="hero-card"><p class="eyebrow">The craft of clarity</p><blockquote>Complex ideas.<br>Clear words.<br>Better experiences.</blockquote><small>Discover · Structure · Explain · Refine</small></aside></div></section>
+<section class="container section"><p class="eyebrow">What we do</p><h2>Documentation that works as hard as your product.</h2><p class="lead">From first-time onboarding to deep technical reference, we turn scattered knowledge into content people can use.</p><div class="cards">
+<article><small>01 / PRODUCT CONTENT</small><h3>Product &amp; user guides</h3><p>Task-focused guides that help customers get started and succeed.</p></article>
+<article><small>02 / DEVELOPER EXPERIENCE</small><h3>API &amp; developer docs</h3><p>API references, integration guides, tutorials, and examples.</p></article>
+<article><small>03 / DOCS-AS-CODE</small><h3>Documentation systems</h3><p>Markdown, Git workflows, review processes, and documentation sites.</p></article>
+<article><small>04 / KNOWLEDGE DESIGN</small><h3>Information architecture</h3><p>Clear navigation and page structures that make information easier to find.</p></article>
+<article><small>05 / LEARNING CONTENT</small><h3>Tutorials &amp; onboarding</h3><p>Step-by-step learning experiences that help new users build confidence.</p></article>
+<article><small>06 / CONTENT CARE</small><h3>Content audit &amp; refresh</h3><p>Reviews for content gaps, consistency, readability, and improvement.</p></article>
+</div></section>
+{% elif page == "portfolio" %}
+<section class="container intro"><p class="eyebrow">Selected work / Portfolio</p><h1>Make every detail <em>make sense.</em></h1><p class="lead">These illustrative sample projects show the types of work Inception can offer. Replace them with your own work when ready.</p></section>
+<section class="container section"><div class="cards two">
+<article class="project green"><small>Sample project 01 · Product documentation</small><h3>Getting-started experience</h3><p>A streamlined onboarding guide with prerequisites, a first-run walkthrough, and troubleshooting tips.</p><span>User guides · Onboarding</span></article>
+<article class="project peach"><small>Sample project 02 · Developer content</small><h3>API integration guide</h3><p>A guide to authentication, requests, responses, common errors, and working examples.</p><span>API docs · Code samples</span></article>
+<article class="project blue"><small>Sample project 03 · Docs-as-code</small><h3>Documentation workflow</h3><p>A workflow using Markdown, Git reviews, automated checks, and a published docs site.</p><span>Markdown · Git workflow</span></article>
+<article class="project gold"><small>Sample project 04 · Information architecture</small><h3>Knowledge base refresh</h3><p>A content audit and redesigned navigation to help readers find answers faster.</p><span>Content audit · Navigation</span></article>
+</div></section>
+{% else %}
+<section class="container intro"><p class="eyebrow">Notes / Ideas / Practice</p><h1>A little more <em>clarity.</em></h1><p class="lead">Practical ideas on technical writing, documentation design, and making complex information easier to use.</p></section>
+<section class="container section"><div class="cards two">
+<article class="project green"><small>Technical writing · 5 min read</small><h3>Write for the task, not the page</h3><p>Organise content around what readers need to do, their questions, goals, and next steps.</p><span>Audience · Usability</span></article>
+<article class="project peach"><small>Docs-as-code · 4 min read</small><h3>Why documentation belongs in your workflow</h3><p>Markdown, version control, and peer review help keep documentation close to the product.</p><span>Markdown · Git</span></article>
+<article class="project blue"><small>Information architecture · 6 min read</small><h3>Help readers find answers faster</h3><p>Clear labels, meaningful grouping, and predictable navigation make a knowledge base easier to use.</p><span>Navigation · Knowledge base</span></article>
+<article class="project gold"><small>Developer content · 5 min read</small><h3>Make API examples do real work</h3><p>Useful examples show realistic inputs and outputs and help developers adapt a pattern.</p><span>API docs · Code samples</span></article>
+</div></section>
+{% endif %}
+<section class="container callout"><div><p class="eyebrow">A thoughtful partner for your team</p><h2>Good documentation makes the complex feel possible.</h2></div><a class="button dark" href="mailto:inception.network2025@gmail.com">Contact us ↗</a></section>
+</main>
+<footer><div class="container footer-grid"><div><h2>Inception.</h2><p>Turn your complex technical content into clear documentation.</p></div><div><h3>Explore</h3><a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('portfolio') }}">Portfolio ↗</a><a href="{{ url_for('blog') }}">Blog</a></div><div><h3>Contact us</h3><a href="mailto:inception.network2025@gmail.com">inception.network2025@gmail.com</a></div></div><div class="container copyright">© <span id="year"></span> Inception Documentation Boutique <span>Clear words. Confident users.</span></div></footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body></html>
